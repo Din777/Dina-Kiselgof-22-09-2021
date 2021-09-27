@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/weather123/static/css/main.b8bdb71d.chunk.css",
-    "main.js": "/weather123/static/js/main.5543be8d.chunk.js",
-    "main.js.map": "/weather123/static/js/main.5543be8d.chunk.js.map",
-    "runtime-main.js": "/weather123/static/js/runtime-main.c8582f35.js",
-    "runtime-main.js.map": "/weather123/static/js/runtime-main.c8582f35.js.map",
-    "static/css/2.aac986e7.chunk.css": "/weather123/static/css/2.aac986e7.chunk.css",
-    "static/js/2.77d1bfc8.chunk.js": "/weather123/static/js/2.77d1bfc8.chunk.js",
-    "static/js/2.77d1bfc8.chunk.js.map": "/weather123/static/js/2.77d1bfc8.chunk.js.map",
-    "static/js/3.d554387a.chunk.js": "/weather123/static/js/3.d554387a.chunk.js",
-    "static/js/3.d554387a.chunk.js.map": "/weather123/static/js/3.d554387a.chunk.js.map",
-    "index.html": "/weather123/index.html",
-    "static/css/2.aac986e7.chunk.css.map": "/weather123/static/css/2.aac986e7.chunk.css.map",
-    "static/css/main.b8bdb71d.chunk.css.map": "/weather123/static/css/main.b8bdb71d.chunk.css.map",
-    "static/js/2.77d1bfc8.chunk.js.LICENSE.txt": "/weather123/static/js/2.77d1bfc8.chunk.js.LICENSE.txt",
-    "static/media/main.scss": "/weather123/static/media/sunrise.8c2ba1a4.jpg",
-    "static/media/weather-icons.css": "/weather123/static/media/weathericons-regular-webfont.e218aee6.woff2"
+    "main.css": "/Dina-Kiselgof-22-09-2021/static/css/main.21bb41b5.chunk.css",
+    "main.js": "/Dina-Kiselgof-22-09-2021/static/js/main.ee81e5b4.chunk.js",
+    "main.js.map": "/Dina-Kiselgof-22-09-2021/static/js/main.ee81e5b4.chunk.js.map",
+    "runtime-main.js": "/Dina-Kiselgof-22-09-2021/static/js/runtime-main.290f1213.js",
+    "runtime-main.js.map": "/Dina-Kiselgof-22-09-2021/static/js/runtime-main.290f1213.js.map",
+    "static/css/2.0c982985.chunk.css": "/Dina-Kiselgof-22-09-2021/static/css/2.0c982985.chunk.css",
+    "static/js/2.77d1bfc8.chunk.js": "/Dina-Kiselgof-22-09-2021/static/js/2.77d1bfc8.chunk.js",
+    "static/js/2.77d1bfc8.chunk.js.map": "/Dina-Kiselgof-22-09-2021/static/js/2.77d1bfc8.chunk.js.map",
+    "static/js/3.d554387a.chunk.js": "/Dina-Kiselgof-22-09-2021/static/js/3.d554387a.chunk.js",
+    "static/js/3.d554387a.chunk.js.map": "/Dina-Kiselgof-22-09-2021/static/js/3.d554387a.chunk.js.map",
+    "index.html": "/Dina-Kiselgof-22-09-2021/index.html",
+    "static/css/2.0c982985.chunk.css.map": "/Dina-Kiselgof-22-09-2021/static/css/2.0c982985.chunk.css.map",
+    "static/css/main.21bb41b5.chunk.css.map": "/Dina-Kiselgof-22-09-2021/static/css/main.21bb41b5.chunk.css.map",
+    "static/js/2.77d1bfc8.chunk.js.LICENSE.txt": "/Dina-Kiselgof-22-09-2021/static/js/2.77d1bfc8.chunk.js.LICENSE.txt",
+    "static/media/main.scss": "/Dina-Kiselgof-22-09-2021/static/media/sunrise.8c2ba1a4.jpg",
+    "static/media/weather-icons.css": "/Dina-Kiselgof-22-09-2021/static/media/weathericons-regular-webfont.e218aee6.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.c8582f35.js",
-    "static/css/2.aac986e7.chunk.css",
+    "static/js/runtime-main.290f1213.js",
+    "static/css/2.0c982985.chunk.css",
     "static/js/2.77d1bfc8.chunk.js",
-    "static/css/main.b8bdb71d.chunk.css",
-    "static/js/main.5543be8d.chunk.js"
+    "static/css/main.21bb41b5.chunk.css",
+    "static/js/main.ee81e5b4.chunk.js"
   ]
 }

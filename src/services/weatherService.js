@@ -2,8 +2,8 @@ const axios = require('axios');
 
 const API_KEY = "N3cAuq3Xbnocf8JevGGcm2kkxelKEDPY"
 
-const baseCurrDayUrl = 'http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/'
-const base5DayUrl= 'http://dataservice.accuweather.com/forecasts/v1/daily/5day/'
+const baseCurrDayUrl = 'https://dataservice.accuweather.com/forecasts/v1/hourly/1hour/'
+const base5DayUrl= 'https://dataservice.accuweather.com/forecasts/v1/daily/5day/'
 
 export default {
     currWeatherQuery,

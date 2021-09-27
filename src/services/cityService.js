@@ -4,7 +4,7 @@ const axios = require('axios');
 
 const API_KEY = "N3cAuq3Xbnocf8JevGGcm2kkxelKEDPY"
 
-const baseUrl = 'http://dataservice.accuweather.com/locations/v1/cities/'
+const baseUrl = 'https://dataservice.accuweather.com/locations/v1/cities/'
 
 const STORAGE_KEY = 'favs'
 
