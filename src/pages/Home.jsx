@@ -23,11 +23,11 @@ export class Home extends React.Component {
     }
 
     componentDidMount() {
-        this.getCurrForecast()
+        this.getCurrForecastt()
         this.getFiveDaysForecast()
     }
 
-    getCurrForecast = async () => {
+    getCurrForecastt = async () => {
         const currWeather = await weatherService.currWeatherQuery(this.state.cityCode)
         this.setState({
             temp: currWeather[0].Temperature.Value,
@@ -54,7 +54,7 @@ export class Home extends React.Component {
             city: convertCityName,
             cityCode: cityCode[0].Key,
         })
-        this.getCurrForecast()
+        this.getCurrForecastt()
         this.getFiveDaysForecast()
     }
 
