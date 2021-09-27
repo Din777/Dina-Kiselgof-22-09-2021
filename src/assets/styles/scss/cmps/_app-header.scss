@@ -1,0 +1,32 @@
+.app-header {
+    width: 100vw;
+
+    header {
+        background-color: rgba(2, 2, 2, 0.62);
+        color: white;
+        max-width: 750px;
+        height: 60px;
+        border-radius: 7px;
+        margin: auto;
+        font-size: rem(26px);
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .header-logo {
+            font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+            letter-spacing: 0.5px;
+            margin-inline-start: 7px;
+        }
+
+        .header-menu {
+            margin-inline-end: 5px;
+        }
+
+        .header-menu :not(:last-child) {
+            margin-inline-end: 20px;
+        }
+    }
+}

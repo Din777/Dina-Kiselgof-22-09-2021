@@ -1,0 +1,21 @@
+//Setup
+@import "setup/variables";
+@import "setup/functions";
+@import "setup/mixins";
+
+//Basics
+@import "basics/helpers";
+@import "basics/layout";
+@import "basics/base";
+
+//Component
+@import "cmps/app-header";
+@import "cmps/form";
+@import "cmps/weather";
+@import "cmps/forecast-list";
+@import "cmps/forecast-preview";
+@import "cmps/fav_preview";
+
+//Pages
+@import "pages/home-page";
+@import "pages/fav-page";

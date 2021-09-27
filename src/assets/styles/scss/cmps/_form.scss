@@ -1,0 +1,31 @@
+form {
+    :not(:first-child) {
+        margin-inline-start: 5px;
+
+        @include for-super-mobile-layout {
+            margin-inline-start: 0px;
+        }
+
+        @include for-mobile-layout {
+            margin-inline-start: 5px;
+        }
+    }
+
+    @include for-super-mobile-layout {
+        font-size: 14px;
+    }
+
+    @include for-mobile-layout {
+        font-size: 14px;
+    }
+
+    @include for-semi-mobile-layout {
+        font-size: 16px;
+    }
+
+    input {
+        @include for-super-mobile-layout {
+            width: 265px;
+        }
+    }
+}

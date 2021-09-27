@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+}
+
+.app {
+    background: url('img/weather.jpg');
+    text-align: center;
+}
+
+.app-header a {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.header-logo a {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: inherit;
+}
+
+.header-logo a:hover {
+    color: inherit;
+}
+
+.list-container {
+    /* width: 1700px; */
+    background-color: rgba(0, 0, 12, 0.6);
+    border-radius: 0.5px;
+    color: white;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 8px;
+}
+
+.navbar ul>*:not(:first-child) {
+    /* display: flex;
+    justify-content: center; */
+    margin-inline-start: 15px;
+}
+
+.navbar li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.fav-loc-name a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.fav-loc-name a:hover {
+    color: inherit;
+}
+
+/* .clicked {
+    color:deeppink;
+} */
+
+@media (max-width:740px) {
+    .birth-pic img {
+        height: 170px;
+        width: 340px;
+        margin-top: 110px;
+    }
+}
+
+/* HELPERS */
+
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.clean-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+}
