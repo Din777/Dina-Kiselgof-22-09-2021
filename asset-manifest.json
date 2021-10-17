@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Dina-Kiselgof-22-09-2021/static/css/main.d9811ec0.chunk.css",
-    "main.js": "/Dina-Kiselgof-22-09-2021/static/js/main.48d3ef02.chunk.js",
-    "main.js.map": "/Dina-Kiselgof-22-09-2021/static/js/main.48d3ef02.chunk.js.map",
+    "main.css": "/Dina-Kiselgof-22-09-2021/static/css/main.5baaad50.chunk.css",
+    "main.js": "/Dina-Kiselgof-22-09-2021/static/js/main.dff17a3b.chunk.js",
+    "main.js.map": "/Dina-Kiselgof-22-09-2021/static/js/main.dff17a3b.chunk.js.map",
     "runtime-main.js": "/Dina-Kiselgof-22-09-2021/static/js/runtime-main.07233d9e.js",
     "runtime-main.js.map": "/Dina-Kiselgof-22-09-2021/static/js/runtime-main.07233d9e.js.map",
     "static/css/2.0c982985.chunk.css": "/Dina-Kiselgof-22-09-2021/static/css/2.0c982985.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.8773c2a8.chunk.js.map": "/Dina-Kiselgof-22-09-2021/static/js/3.8773c2a8.chunk.js.map",
     "index.html": "/Dina-Kiselgof-22-09-2021/index.html",
     "static/css/2.0c982985.chunk.css.map": "/Dina-Kiselgof-22-09-2021/static/css/2.0c982985.chunk.css.map",
-    "static/css/main.d9811ec0.chunk.css.map": "/Dina-Kiselgof-22-09-2021/static/css/main.d9811ec0.chunk.css.map",
+    "static/css/main.5baaad50.chunk.css.map": "/Dina-Kiselgof-22-09-2021/static/css/main.5baaad50.chunk.css.map",
     "static/js/2.774bf3de.chunk.js.LICENSE.txt": "/Dina-Kiselgof-22-09-2021/static/js/2.774bf3de.chunk.js.LICENSE.txt",
     "static/media/15.9aac7942.png": "/Dina-Kiselgof-22-09-2021/static/media/15.9aac7942.png",
     "static/media/16.02f6796a.png": "/Dina-Kiselgof-22-09-2021/static/media/16.02f6796a.png",
@@ -25,7 +25,7 @@
     "static/js/runtime-main.07233d9e.js",
     "static/css/2.0c982985.chunk.css",
     "static/js/2.774bf3de.chunk.js",
-    "static/css/main.d9811ec0.chunk.css",
-    "static/js/main.48d3ef02.chunk.js"
+    "static/css/main.5baaad50.chunk.css",
+    "static/js/main.dff17a3b.chunk.js"
   ]
 }
