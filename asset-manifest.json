@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Dina-Kiselgof-22-09-2021/static/css/main.bf1804ed.chunk.css",
-    "main.js": "/Dina-Kiselgof-22-09-2021/static/js/main.ff563302.chunk.js",
-    "main.js.map": "/Dina-Kiselgof-22-09-2021/static/js/main.ff563302.chunk.js.map",
+    "main.js": "/Dina-Kiselgof-22-09-2021/static/js/main.59bb3529.chunk.js",
+    "main.js.map": "/Dina-Kiselgof-22-09-2021/static/js/main.59bb3529.chunk.js.map",
     "runtime-main.js": "/Dina-Kiselgof-22-09-2021/static/js/runtime-main.07233d9e.js",
     "runtime-main.js.map": "/Dina-Kiselgof-22-09-2021/static/js/runtime-main.07233d9e.js.map",
     "static/css/2.0c982985.chunk.css": "/Dina-Kiselgof-22-09-2021/static/css/2.0c982985.chunk.css",
@@ -26,6 +26,6 @@
     "static/css/2.0c982985.chunk.css",
     "static/js/2.774bf3de.chunk.js",
     "static/css/main.bf1804ed.chunk.css",
-    "static/js/main.ff563302.chunk.js"
+    "static/js/main.59bb3529.chunk.js"
   ]
 }
