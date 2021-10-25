@@ -22,7 +22,12 @@
         }
 
         .header-menu {
-            margin-inline-end: 5px;
+            margin-inline-end: 10px;
+
+            & .fav-icon {
+                font-size: rem(30px);
+                color: #4fb1f2;
+            }
         }
 
         .header-menu :not(:last-child) {

@@ -7,7 +7,7 @@ export default {
 
 function dateConverter() {
     const newDate = new Date()
-    return newDate.toGMTString()
+    return newDate.toDateString()
 }
 
 function nameConverter(name) {

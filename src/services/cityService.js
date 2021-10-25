@@ -2,56 +2,59 @@ import storageService from './storageService'
 
 const axios = require('axios');
 
-const API_KEY = "N3cAuq3Xbnocf8JevGGcm2kkxelKEDPY"
+// const API_KEY = "N3cAuq3Xbnocf8JevGGcm2kkxelKEDPY"
+const API_KEY = "u58HTB7vLnmoeBywAu3bOtqrhqFVW3Ay"
 
 const baseUrl = 'https://dataservice.accuweather.com/locations/v1/cities/'
 
 const STORAGE_KEY = 'favs'
 
 var gFavorites = []
-var msg = ''
 
 export default {
     cityConverter,
     updateFav,
+    searchFav,
     queryFav
 }
 
 function queryFav() {
     var favCities = storageService.load(STORAGE_KEY)
-    gFavorites = favCities
+    if (favCities) gFavorites = favCities
     return gFavorites
 }
 
-function cityConverter(cityName) {
+function cityConverter(cityName, setError) {
     var url = _urlConverter(cityName)
     return axios.get(url)
         .then(res => res.data)
         .catch(err => {
-            alert('Can not find this location. Please try another one. ');
             console.log('ERR city service-cityConverter :', err);
+            return setError('Can not find this location. Please try another one.');
         })
 }
 
-function updateFav(cityToSave) {
-    if (!cityToSave.cityCode) return msg = 'Please enter some location'
+function searchFav(cityCode) {
+    const cityIdx = _getIdxById(cityCode)
+    if (cityIdx >= 0) return true
+    else return false
+}
+
+function updateFav(cityCode, cityName, setError) {
+    if (!cityCode || !cityName) return setError('City is empty- can not add to favorite.')
+
+    const cityIdx = _getIdxById(cityCode)
+    if (cityIdx >= 0) {
+        gFavorites.splice(cityIdx, 1)
+    }
     else {
-        const cityIdx = _getIdxById(cityToSave.cityCode)
-        if (cityIdx >= 0) {
-            gFavorites.splice(cityIdx, 1)
-            msg = `${cityToSave.city} is successfully removed.`
-        }
-        else {
-            gFavorites.push(cityToSave)
-            msg = `${cityToSave.city} was added to favorites!`
-        }
+        gFavorites.push({ cityCode, cityName })
     }
     storageService.store(STORAGE_KEY, gFavorites)
-    return msg
 }
 
 function _getIdxById(cityId) {
-    return gFavorites.findIndex(city => city.cityCode === cityId)
+    return gFavorites.findIndex(code => code.cityCode === cityId)
 }
 
 function _urlConverter(cityName) {

@@ -1,20 +1,12 @@
-import cityService from '../services/cityService';
+import React, { useContext } from "react"
+import { WeatherContext } from "../context/weatherContext"
 
-export function Form({ cityObj, toggleFav, getWeather }) {
-
-    function editFavorites() {
-        var msg = cityService.updateFav(cityObj)
-        alert(msg)
-        toggleFav(cityObj)
-    }
+export const Form = () => {
+    const { getWeather } = useContext(WeatherContext)
 
     return (
         < form className="main-layout" action="" onSubmit={getWeather} >
             <input type="text" name="city" placeholder="City..." autoComplete="off" />
             <button>Get Weather</button>
-            <button onClick={editFavorites}>
-                {cityObj.isFavorite && <span>Remove from favorites</span>}
-                {!cityObj.isFavorite && <span>Add to favorites</span>}
-            </button>
         </form >)
 }

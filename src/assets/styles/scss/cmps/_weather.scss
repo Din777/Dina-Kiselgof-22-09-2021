@@ -13,6 +13,16 @@
         margin-top: rem(15px);
     }
 
+    & .fav-indication-btn {
+        background-color: transparent;
+        border: unset;
+        margin-top: -10px;
+        height: 24px;
+        font-size: rem(22px);
+        color: #4fb1f2;
+        padding: 0;
+    }
+
     .location-desc {
         font-size: 45px;
 
@@ -29,32 +39,53 @@
         }
 
         .loc-and-temp {
-            width: 405px;
+            width: auto;
             justify-content: space-between;
 
             @include for-super-mobile-layout {
                 width: 250px;
             }
-    
+
             @include for-mobile-layout {
                 width: 350px;
             }
-    
+
             @include for-semi-mobile-layout {
-                width: 405px;
+                width: auto;
             }
         }
 
-      
+        .curr-weather-icon {
+            width: 125px;
+            height: 80px;
+            & img {
+                width: 124px;
+                height: 75px;
+            }
+
+            @include for-super-mobile-layout {
+                width: 105px;
+                height: 70px;
+                & img {
+                    width: 104px;
+                    height: 65px;
+                }
+            }
+
+            @include for-mobile-layout {
+                width: 125px;
+                height: 80px;
+            }
+        }
     }
 
     p {
         @include for-super-mobile-layout {
-            margin-bottom: 7px;
+            margin: 0px 0px 7px 10px;
         }
 
         @include for-mobile-layout {
-            margin-bottom: 8px;
+            margin: 0 10px 8px 12px;
         }
 
         @include for-semi-mobile-layout {

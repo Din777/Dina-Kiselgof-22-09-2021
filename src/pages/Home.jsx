@@ -1,82 +1,69 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ForecastsList } from '../cmps/ForecastsList'
 import { Form } from '../cmps/Form'
 import { Weather } from '../cmps/Weather'
+import { Error } from '../cmps/Error'
 import weatherService from '../services/weatherService'
 import cityService from '../services/cityService'
-import utilService from '../services/utilService'
+import { WeatherContext } from '../context/weatherContext'
 
 
-export class Home extends React.Component {
+export const Home = () => {
+    const [weatherState, setWeatherState] = useState(null)
+    const [fiveDayForecast, setFiveDayForecast] = useState([])
+    const [city, setCity] = useState('Tel Aviv')
+    const [cityCode, setCityCode] = useState(215854)
+    const [error, setError] = useState(null)
 
-    state = {
-        city: 'Tel Aviv',
-        cityCode: 215854,
-        date: utilService.dateConverter(),
-        temp: '',
-        unit: '',
-        convertTemp: '',
-        convertUnit: 'C',
-        description: '',
-        fiveDayForecast: [],
-        isFavorite: ''
+    const getCurrForecast = async () => {
+        const currWeather = await weatherService.currWeatherQuery(cityCode, setError)
+        return currWeather[0]
     }
 
-    componentDidMount() {
-        this.getCurrForecastt()
-        this.getFiveDaysForecast()
+    const getFiveDaysForecast = async () => {
+        const fiveDaysWeather = await weatherService.fiveDayForecast(cityCode, setError)
+        return fiveDaysWeather.DailyForecasts
     }
 
-    getCurrForecastt = async () => {
-        const currWeather = await weatherService.currWeatherQuery(this.state.cityCode)
-        this.setState({
-            temp: currWeather[0].Temperature.Value,
-            unit: currWeather[0].Temperature.Unit,
-            convertTemp: utilService.tempConverter(currWeather[0].Temperature.Value),
-            description: currWeather[0].IconPhrase,
-        })
-    }
-
-    getFiveDaysForecast = async () => {
-        const fiveDaysWeather = await weatherService.fiveDayForecast(this.state.cityCode)
-        this.setState({
-            fiveDayForecast: fiveDaysWeather.DailyForecasts
-        })
-    }
-
-    getWeather = async (ev) => {
+    const getWeather = async (ev) => {
         ev.preventDefault()
-        var cityForSearch
-        (!ev.target.elements.city.value) ? cityForSearch = this.state.city : cityForSearch = ev.target.elements.city.value
-        var convertCityName = utilService.nameConverter(cityForSearch)
-        const cityCode = await cityService.cityConverter(convertCityName)
-        this.setState({
-            city: convertCityName,
-            cityCode: cityCode[0].Key,
-        })
-        this.getCurrForecastt()
-        this.getFiveDaysForecast()
+        setWeatherState(null)
+        setFiveDayForecast(null)
+        setCityCode(null)
+        const cityForSearch = ev.target.elements.city.value
+        if (!cityForSearch) return setError('Please enter the name of the city.')
+
+        const cityCode = await cityService.cityConverter(cityForSearch, setError)
+        if (!cityCode[0]) return setError('Location is not found. Please try a different name.')
+
+        setCityCode(cityCode[0].Key)
+        setCity(cityCode[0].LocalizedName)
     }
 
-    onToggleFav = () => {
-        if (this.state.isFavorite) {
-            this.setState({
-                isFavorite: false
-            })
-        } else {
-            this.setState({
-                isFavorite: true
-            })
-        }
+    const onLoad = async () => {
+        const weather = await getCurrForecast()
+        setWeatherState(weather)
+        const forecast = await getFiveDaysForecast()
+        setFiveDayForecast(forecast)
+        setError(null)
     }
 
-    render() {
-        return (
-            <div className="main-container flex column align-center">
-                <Form getWeather={this.getWeather} spellCheck={this.spellCheck} cityObj={this.state} toggleFav={this.onToggleFav} />
-                <Weather cityObj={this.state} />
-                {this.state.fiveDayForecast && <ForecastsList fiveDayForecast={this.state.fiveDayForecast} />}
-            </div>
+    useEffect(() => {
+        if (cityCode) onLoad()
+        return () => (
+            setWeatherState(null),
+            setFiveDayForecast([])
         )
-    }
+    }, [cityCode])
+
+    return (
+        <WeatherContext.Provider value={{ getWeather, error, weatherState, city, cityCode, setWeatherState, fiveDayForecast }}>
+            <div className="main-container flex column align-center">
+                <Form />
+                {error && <Error />}
+                {weatherState && <Weather />}
+                {fiveDayForecast && <ForecastsList />}
+            </div>
+        </WeatherContext.Provider>
+    )
 }

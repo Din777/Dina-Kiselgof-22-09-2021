@@ -1,0 +1,16 @@
+.error {
+    margin-top: rem(13px);
+    text-align: center;
+
+    @include for-super-mobile-layout {
+        margin-top: rem(5px);
+    }
+
+    @include for-mobile-layout {
+        margin-top: rem(5px);
+    }
+
+    @include for-semi-mobile-layout {
+        margin-top: rem(13px);
+    }
+}

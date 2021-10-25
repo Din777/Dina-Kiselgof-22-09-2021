@@ -1,69 +1,59 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { WeatherContext } from '../context/weatherContext'
+import cityService from '../services/cityService'
+import iconService from '../services/iconService'
 import utilService from '../services/utilService'
+import weatherService from '../services/weatherService'
 
-const savedCurrWeather = [
-    {
-        "DateTime": "2021-09-23T18:00:00+03:00",
-        "EpochDateTime": 1632409200,
-        "WeatherIcon": 2,
-        "IconPhrase": "Mostly sunny",
-        "HasPrecipitation": false,
-        "IsDaylight": true,
-        "Temperature": {
-            "Value": 81,
-            "Unit": "F",
-            "UnitType": 18
-        },
-        "PrecipitationProbability": 0,
-        "MobileLink": "http://www.accuweather.com/en/il/tel-aviv/215854/hourly-weather-forecast/215854?day=1&hbhhour=18&lang=en-us",
-        "Link": "http://www.accuweather.com/en/il/tel-aviv/215854/hourly-weather-forecast/215854?day=1&hbhhour=18&lang=en-us"
-    }
-]
+export const FavPreview = ({ favCity }) => {
+    const { getFavCitiesArray } = useContext(WeatherContext)
 
-export class FavPreview extends React.Component {
+    const [favCityCurrWeather, setFavCityCurrWeather] = useState(null)
+    const [isFavorite, setIsFavorite] = useState(false)
 
-    state = {
-        city: '',
-        cityCode: '',
-        date: utilService.dateConverter(),
-        temp: '',
-        unit: '',
-        convertTemp: '',
-        convertUnit: 'C',
-        description: '',
-        fiveDayForecast: [],
-        isFavorite: false
+    const isFavCity = () => {
+        const res = cityService.searchFav(favCity.cityCode)
+        console.log('res', res);
+        (res) ? setIsFavorite(true) : setIsFavorite(false)
     }
 
-    componentDidMount() {
-        this.getWeatherToFavCity()
+    const editFav = () => {
+        cityService.updateFav(favCity.cityCode, favCity.cityName)
+        setIsFavorite(!isFavorite)
+        getFavCitiesArray()
     }
 
-    getWeatherToFavCity() {
-        const { favCity } = this.props
-        this.setState({
-            city: favCity.city,
-            cityCode: favCity.cityCode,
-            temp: savedCurrWeather[0].Temperature.Value,
-            unit: savedCurrWeather[0].Temperature.Unit,
-            convertTemp: utilService.tempConverter(savedCurrWeather[0].Temperature.Value),
-            description: savedCurrWeather[0].IconPhrase,
-            isFavorite: favCity.isFavorite
-        })
+    const getWeatherToFavCity = async () => {
+        const currWeather = await weatherService.currWeatherQuery(favCity.cityCode)
+        setFavCityCurrWeather(currWeather[0])
     }
 
-    render() {
-        return (
-            <div className="fav-forecast">
-                <div className="fav-loc-name ">
+    useEffect(() => {
+        getWeatherToFavCity()
+        isFavCity()
+    }, [])
+
+    return (
+        <div className="fav-forecast">
+            <div className="fav-loc-name flex">
+                <div className="fav-info">
+                    <button className="fav-indication-btn" onClick={() => editFav()}>
+                        {isFavorite && '♥︎'}
+                        {!isFavorite && '♡'}
+                    </button>
+                </div>
+                <div className="fav-info">
                     <Link to="/">
-                        <p>{this.state.city}</p>
+                        <h4>{favCity.cityName}</h4>
                     </Link>
                 </div>
-                <p>{this.state.convertTemp}&deg;{this.state.convertUnit}</p>
-                <p>{this.state.description}</p>
             </div>
-        )
-    }
+            {favCityCurrWeather && <h4 className="fav-info">{utilService.tempConverter(favCityCurrWeather.Temperature.Value)}&deg;C</h4>}
+            {favCityCurrWeather &&
+                <div className="curr-weather-icon fav-info">
+                    <img src={iconService.iconQuery(favCityCurrWeather.WeatherIcon)} alt="" />
+                </div>}
+        </div>
+    )
 }

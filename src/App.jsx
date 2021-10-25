@@ -7,8 +7,8 @@ import { AppFooter } from './cmps/AppFooter.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'weather-icons/css/weather-icons.css'
 
-export function App() {
-  return (<React.Fragment>
+export const App = () => {
+  return (<>
     <div className="app">
       <AppHeader />
       <Switch>
@@ -17,6 +17,6 @@ export function App() {
       </Switch>
       <AppFooter />
     </div>
-  </React.Fragment>
+  </>
   )
 }

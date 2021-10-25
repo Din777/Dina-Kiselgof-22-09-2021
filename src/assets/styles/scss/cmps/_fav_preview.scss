@@ -14,11 +14,40 @@
     @include for-mobile-layout {
         border: 2px solid rgba(255, 255, 255, 0.301);
     }
+
+    h4 {
+        font-weight: normal;
+        margin-bottom: 0px;
+    }
+
+    .fav-info {
+        @include for-super-mobile-layout {
+            width: 50px;
+        }
+    }
+
+    & .fav-indication-btn {
+        background-color: transparent;
+        border: unset;
+        margin-top: -2px;
+        height: 24px;
+        font-size: 23px;
+        color: #4fb1f2;
+        padding: 0;
+    }
 }
 
 .fav-loc-name {
     a {
         text-decoration: none;
         color: inherit;
+    }
+
+    > * {
+        margin-inline-start: 5px;
+        
+        @include for-super-mobile-layout {
+            margin-inline-start: 0px;
+        }
     }
 }

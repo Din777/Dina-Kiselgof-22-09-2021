@@ -1,34 +1,31 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { FavList } from "../cmps/FavList"
+import { WeatherContext } from "../context/weatherContext"
 import cityService from "../services/cityService"
 
-export class Fav extends React.Component {
+export const Fav = () => {
 
-    state = {
-        favCities: []
+    const [favCities, setFavCities] = useState([])
+
+    const getFavCitiesArray = async () => {
+        const favCities = await cityService.queryFav()
+        setFavCities(favCities)
     }
 
-    componentDidMount() {
-        this.getFavCitiesArray()
-    }
+    useEffect(() => {
+        getFavCitiesArray()
+    }, [])
 
-    getFavCitiesArray = async () => {
-        var favCityArray = await cityService.queryFav()
-        this.setState({
-            favCities: favCityArray
-        })
-    }
-
-    render() {
-        return <div className="fav-container main-container flex column align-center ">
+    return <WeatherContext.Provider value={{ favCities, getFavCitiesArray }}>
+        <div className="fav-container main-container flex column align-center ">
             <div className="main-layout">
                 <h3>My favorites locations:</h3>
             </div>
-            {(this.state.favCities) && <FavList favCitiesArray={this.state.favCities} />}
-            {(!this.state.favCities) && <div className="fav-page-msg main-layout">
+            {favCities[0] && <FavList />}
+            {!favCities[0] && <div className="fav-page-msg main-layout">
                 <p>Your list is empty</p>
                 <div className="list-container"></div>
             </div>}
         </div>
-    }
+    </WeatherContext.Provider>
 }

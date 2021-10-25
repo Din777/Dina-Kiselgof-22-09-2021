@@ -1,27 +1,14 @@
 import React from 'react'
+import iconService from '../services/iconService'
 import utilService from '../services/utilService'
 
-export class ForecastPreview extends React.Component {
-
-    getConvertTemp(temp) {
-        var newTemp = utilService.tempConverter(temp)
-        return newTemp
-    }
-
-    getConvertDate(date) {
-        var convertDate = utilService.weeklyDaysConverter(date)
-        return convertDate
-    }
-
-    render() {
-        const { day } = this.props
-        return (
-            <div className="forecast">
-                <div className="info"><p>{this.getConvertDate(day.Date)}</p></div>
-                <div className="info"><p>Max: {this.getConvertTemp(day.Temperature.Maximum.Value)}&deg;C</p></div>
-                <div className="info">  <p>Min: {this.getConvertTemp(day.Temperature.Minimum.Value)}&deg;C</p></div>
-                <div className="info"><p>{day.Day.IconPhrase}</p></div>
-            </div>
-        )
-    }
+export const ForecastPreview = ({ day }) => {
+    return (
+        <div className="forecast">
+            <div className="info"><p>{utilService.weeklyDaysConverter(day.Date)}</p></div>
+            <div className="info"><p>Max: {utilService.tempConverter(day.Temperature.Maximum.Value)}&deg;C</p></div>
+            <div className="info"><p>Min: {utilService.tempConverter(day.Temperature.Minimum.Value)}&deg;C</p></div>
+            <div className="info"><img src={iconService.iconQuery(day.Day.Icon)} alt="" /></div>
+        </div>
+    )
 }

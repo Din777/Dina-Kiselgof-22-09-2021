@@ -1,7 +1,7 @@
-export function AppFooter() {
+export const AppFooter = () => {
     return (
         <footer className="flex justify-center">
-            <small>Created by Dina K 💍 2021</small>
+            <small>Designed and developed by Dina K 💍 2021</small>
         </footer>
     )
 }
